@@ -33,16 +33,18 @@ public class CategoryController {
         return categoryService.getAll();
     }
     
+    @GetMapping("/(id)")
+    public Optional<Category> getCategory(@PathVariable("id") int id){
+        return categoryService.getCategory(id);
+    }
+    
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Category save (@RequestBody Category category){
         return categoryService.save(category);
     }
     
-    @GetMapping("/(id)")
-    public Optional<Category> getCategory(@PathVariable("id") int id){
-        return categoryService.getCategory(id);
-    }
+    
     
     
     
